@@ -9,10 +9,13 @@ function generarEntradas() {
     // Generar las nuevas entradas
     for (let i = min; i <= max; i++) {
         const nuevaEntrada = `
-        <label for="entrada${i}">${i}:</label>
-        <input type="text" id="entrada${i}" name="entrada${i}">
-        </br>
-    `;
+          <label for="entrada${i}">
+            ${i < 0 ? '-' : '&nbsp;'}${Math.abs(i).toString().padStart(2, '0')}:
+         </label>
+         <input type="number" id="entrada${i}" name="entrada${i}">
+         </br>
+       `;
+        
         entradas.insertAdjacentHTML("beforeend", nuevaEntrada);
     }
 }

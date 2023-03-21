@@ -21,21 +21,19 @@
       h2 {
           margin-top: 3.5rem;
       }
+      
     </style>
   </head>
   <body>
     <h2>Calculadora de equivalencia</h2>
 
-    <br />
-    <br />
-
-    La equivalencia en el periodo de interes coresponde a: <br />
-    $<input type="number" id="resultado" readonly/>
-
-    <br />
-    <br />
-    <br />
-
+    <fieldset>
+      <legend>Equivalencia ($)</legend>
+      <input type="number" id="resultado" placeholder="Equivalencia en el periodo" readonly/>
+    </fieldset>
+    
+    <br/>
+    
     <form>
       <fieldset>
         <legend>Parametros</legend> 
@@ -50,27 +48,36 @@
         <input type="number" id="maximo" name="maximo" placeholder="Final del flujo"/>
         <br />
         
-        <label for="Interes">Interes:</label>
+        <label for="Interes">Interes (%):</label>
         <br />
-        <input type="number" id="interes" name="interes" placeholder="Tasa de interes"/>%
+        <input type="number" id="interes" name="interes" placeholder="Tasa de interes"/>
         <br />
 
         <label for="periodo">Periodo de interes:</label>
         <br />
-        <input type="number" id="periodo" name="periodo" placeholder="Presente" />
+        <input type="number" id="periodo" name="periodo" placeholder="default: Periodo de inicio" />
 
         <br />
         <br />
 
-        <button type="button" onclick="generarEntradas()">Generar</button>
+        <button type="button" onclick="generarEntradas()">Generar Entradas</button>
+
         <button type="button" onclick="calculadoradeequivalencia()">
           Calcular
         </button>
-        <button type="button" onclick="limpiarFormulario()">
-          Eliminar Entradas
-        </button>
         
+        <button type="button" onclick="limpiarFormulario()">
+          Eliminar
+        </button>
+
+        <br/>
+
+        <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia">Código</a>
+        <a href="instrucciones.html">Instrucciones </a>
       </fieldset>
+
+      
+    
 
     </form>
 
@@ -79,8 +86,7 @@
     <h2>Flujo ($)</h2>
     <div id="entradas"></div>
 
-    <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia">Código</a>
-
+    
     <script src="script.js"></script>
     <script src="eco.js"></script>
   </body>

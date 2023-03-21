@@ -33,9 +33,11 @@ function flujonv(flujo, nperiodos, interes, periododeinteres) {
 		valorequivalente = 0;
 		if (i<periododeinteres) {
 			valorequivalente = nfv(flujo[i],interes,periododeinteres-i);
+            console.log("a")
 		}
 		if (i>periododeinteres) {
 			valorequivalente = npv(flujo[i],interes,i-periododeinteres);
+            console.log("b")
 		}
 		total = total+valorequivalente;
 	}
@@ -46,12 +48,40 @@ function calculadoradeequivalencia() {
     
 	periodoinicio = parseInt(document.getElementById("minimo").value);
 	periodofinal = parseInt(document.getElementById("maximo").value);
-	periododeinteres = parseInt(document.getElementById("periodo").value) || periodoinicio;
+
+    if( document.getElementById("periodo").value == "" ){
+     	periododeinteres = periodoinicio;   
+    } else {
+        periododeinteres = parseInt(document.getElementById("periodo").value);   
+    }
+    
 	interes = parseFloat(document.getElementById("interes").value);
-	nflujos = Math.abs(periodoinicio-periodofinal);
-
     flujo = obtenerValores()
+    
+    nflujos = Math.abs(periodoinicio-periodofinal);
+    porcentual = interes/100;
+    pinteres =  Math.abs(periodoinicio-periododeinteres);
 
-    document.getElementById("resultado").value = flujonv(flujo,nflujos,interes/100,Math.abs(periodoinicio-periododeinteres))
+    document.getElementById("resultado").value = flujonv(
+        flujo,
+        nflujos,
+        porcentual,
+        pinteres
+    )
 }
+
+function calculadoradeequivalencia() {
+    const periodoinicio = parseInt(document.getElementById("minimo").value);
+    const periodofinal = parseInt(document.getElementById("maximo").value);
+    const periododeinteres = document.getElementById("periodo").value == "" ? periodoinicio : parseInt(document.getElementById("periodo").value);
+    const interes = parseFloat(document.getElementById("interes").value);
+    
+    const flujo = obtenerValores();
+    const nflujos = Math.abs(periodoinicio - periodofinal);
+    const porcentual = interes / 100;
+    const pinteres = Math.abs(periodoinicio - periododeinteres);
+    
+    document.getElementById("resultado").value = flujonv(flujo, nflujos, porcentual, pinteres);
+}
+
 

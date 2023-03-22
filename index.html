@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Calculadora de equivalencia económica</title>
 
     <style>
@@ -22,69 +22,99 @@
       fieldset {
           border: 1px solid black;
       }
-      
     </style>
   </head>
   <body>
     <!-- <h2>Calculadora de equivalencia</h2> -->
 
     <fieldset>
-      <legend>Equivalencia ($)</legend>
-      <input type="number" id="resultado" placeholder="Equivalencia en el periodo" readonly/>
+      <legend>
+        <b> Equivalencia ($) </b>
+      </legend>
+      <input
+        type="number"
+        id="resultado"
+        placeholder="Equivalencia en el periodo"
+        readonly
+      />
     </fieldset>
-    
-    <br/>
-    
+
+    <br />
+
     <fieldset>
-      <legend>Parametros</legend> 
+      <legend>
+        <b>Parametros</b>
+      </legend>
 
       <label for="minimo">Periodo de inicio:</label>
       <br />
-      <input type="number" id="minimo" name="minimo" placeholder="Inicio del flujo" />
+      <input
+        type="number"
+        id="minimo"
+        name="minimo"
+        placeholder="Inicio del flujo"
+      />
       <br />
 
       <label for="maximo">Periodo final:</label>
       <br />
-      <input type="number" id="maximo" name="maximo" placeholder="Final del flujo"/>
+      <input
+        type="number"
+        id="maximo"
+        name="maximo"
+        placeholder="Final del flujo"
+      />
       <br />
-      
+
       <label for="Interes">Interes (%):</label>
       <br />
-      <input type="number" id="interes" name="interes" placeholder="Tasa de interes"/>
+      <input
+        type="number"
+        id="interes"
+        name="interes"
+        placeholder="Tasa de interes"
+      />
       <br />
 
       <label for="periodo">Periodo de interes:</label>
       <br />
-      <input type="number" id="periodo" name="periodo" placeholder="default: Periodo de inicio" />
+      <input
+        type="number"
+        id="periodo"
+        name="periodo"
+        placeholder="default: Periodo de inicio"
+      />
 
       <br />
       <br />
 
-      <button type="button" onclick="generarEntradas()">Generar Entradas</button>
+      <button type="button" onclick="generarEntradas()">
+        Generar Entradas
+      </button>
 
       <button type="button" onclick="calculadoradeequivalencia()">
         Calcular
       </button>
-      
-      <button type="button" onclick="limpiarFormulario()">
-        Eliminar
-      </button>
 
-      <br/>
+      <button type="button" onclick="limpiarFormulario()">Eliminar</button>
 
-      <a href="README.md">Instrucciones</a> 
-      <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia">Código</a>
+      <br />
+
+      <a href="README.md">Instrucciones</a>
+      <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia"
+        >Código</a
+      >
     </fieldset>
 
-    <br/>
+    <br />
 
     <!-- -->
 
-        <fieldset>
-    <legend>Flujos ($)</legend> 
-    <div id="entradas"></div>
+    <fieldset>
+      <legend><b>Flujos ($)</b></legend>
+      <div id="entradas"></div>
     </fieldset>
-    
+
     <script src="script.js"></script>
     <script src="eco.js"></script>
   </body>

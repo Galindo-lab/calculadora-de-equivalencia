@@ -1,4 +1,9 @@
 
+function copyValue(a,b) {
+    let foo = document.getElementById(a).value;
+    document.getElementById(b).value = foo;
+}
+
 /**
  * Generar los campos para ingresar el flujo de efectivo
  */
@@ -16,7 +21,8 @@ function generarEntradas() {
           <label for="entrada${i}">
             ${i < 0 ? '-' : '&nbsp;'}${Math.abs(i).toString().padStart(2, '0')}:
          </label>
-         <input type="number" id="entrada${i}" name="entrada${i}">
+         <input type="text" id="entrada${i}" name="entrada${i}">
+         <button onclick="copyValue('entrada${i}','entrada${i+1}')"> &darr; </button>
          </br>
        `;
         
@@ -30,7 +36,7 @@ function generarEntradas() {
  */
 function obtenerValores() {
     var entradas = Array.from(document.querySelectorAll("#entradas input"));
-    return entradas.map(entrada => parseFloat(entrada.value) || 0);
+    return entradas.map(entrada => parseFloat(eval(entrada.value)) || 0);
 }
 
 /**

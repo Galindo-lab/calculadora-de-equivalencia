@@ -30,6 +30,23 @@
       a:hover {
           text-decoration: underline;
       }
+
+      a[href^="http"]::before {
+          content: "[";
+      }
+
+      a[href^="http"]::after {
+          content: "]";
+      }
+
+
+      h2 {
+          font-weight: inherit;
+      }
+
+      h1 {
+          font-weight: inherit;
+      }
     </style>
   </head>
   <body>
@@ -116,9 +133,9 @@
     </fieldset>
 
     <br>
-    <a href="README.md"><b>[Instrucciones]</b></a>
-    <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia"><b>[Código]</b></a>
-    <a href="https://galindo-lab.github.io/"><b>[Origen]</b></a>
+    <a href="README.md"><b>Instrucciones</b></a>
+    <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia"><b>Código</b></a>
+    <a href="https://galindo-lab.github.io/"><b>Origen</b></a>
 
     <script src="script.js"></script>
     <script src="eco.js"></script>

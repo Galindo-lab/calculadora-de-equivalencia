@@ -1,0 +1,41 @@
+body {
+    width: min(100% - 2rem, 520px);
+    margin-inline: auto;
+    margin-block: 7rem;
+    line-height: 1.5em;
+    font-family: monospace;
+}
+
+input {
+    margin: 0.25em;
+}
+
+fieldset {
+    border: 1px solid black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a[href^="http"]::before {
+    content: "[";
+}
+
+a[href^="http"]::after {
+    content: "]";
+}
+
+
+h2 {
+    font-weight: inherit;
+}
+
+h1 {
+    font-weight: inherit;
+}

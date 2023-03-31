@@ -1,21 +1,28 @@
+* {
+    font-family: monospace;
+}
+
 body {
     width: min(100% - 2rem, 520px);
     margin-inline: auto;
     margin-block: 7rem;
     line-height: 1.5em;
-    font-family: monospace;
 }
 
 input {
     margin: 0.25em;
 }
 
-fieldset {
-    border: 1px solid black;
+input[readonly] {
+    font-size: large;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    width: -webkit-fill-available;
 }
 
 a {
-    color: black;
+    color: inherit;
     text-decoration: none;
 }
 
@@ -23,11 +30,11 @@ a:hover {
     text-decoration: underline;
 }
 
-a[href^="http"]::before {
+a::before {
     content: "[";
 }
 
-a[href^="http"]::after {
+a::after {
     content: "]";
 }
 

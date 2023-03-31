@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light">
+    
     <title>Calculadora de equivalencia económica</title>
 
     <script defer src="scripts/script.js"></script>
@@ -19,18 +21,20 @@
       <input
         type="number"
         id="resultado"
-        placeholder="Equivalencia en el periodo"
+        placeholder="0.00"
         readonly
         />
+
     </fieldset>
 
-    <br />
-
+    <br/>
+    
     <fieldset>
-      <legend>
-        <b>Parametros</b>
-      </legend>
 
+      <legend>
+        <b> Parametros </b>
+      </legend>
+      
       <label for="minimo">Periodo de inicio:</label>
       <br />
       <input
@@ -67,12 +71,11 @@
         type="number"
         id="periodo"
         name="periodo"
-        placeholder="default: Periodo de inicio"
+        placeholder="Periodo de inicio"
         />
 
-      <br />
-      <br />
-
+      <hr/>
+      
       <button type="button" onclick="generarEntradas()">
         Generar Entradas
       </button>
@@ -82,18 +85,21 @@
       </button>
 
       <button type="button" onclick="limpiarFormulario()">Eliminar</button>
+      
+      
+      
     </fieldset>
-
-    <br />
-
+    
+    
     <!-- -->
-
+    <br/>
     <fieldset>
       <legend><b>Flujos ($)</b></legend>
       <div id="entradas"></div>
     </fieldset>
 
-    <br>
+    <br/>
+
     <a href="README.md"><b>Instrucciones</b></a>
     <a href="LICENSE"><b>Licencia</b></a>
     <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia"><b>Código</b></a>

@@ -1,112 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark light">
-    
-    <title>Calculadora de equivalencia económica</title>
 
-    <script defer src="scripts/script.js"></script>
-    <script defer src="scripts/eco.js"></script>
-    <link rel="stylesheet" href="styles/styles.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
 
-  </head>
-  <body>
+  <title>Calculadora de equivalencia económica</title>
 
-    <fieldset>
-      <legend>
-         Equivalencia
-      </legend>
-      <input
-        type="text"
-        id="resultado"
-        placeholder="$0.00"
-        readonly
-        />
+  <script defer src="scripts/script.js"></script>
+  <script defer src="scripts/eco.js"></script>
+  <link rel="stylesheet" href="styles/styles.css" />
 
-    </fieldset>
+</head>
 
-    <br/>
-    
-    <fieldset>
+<body>
 
-      <legend>
-       Parámetros
-      </legend>
-      
-      <label for="minimo">Periodo de inicio:</label>
-      <br />
-      <input
-        type="number"
-        id="minimo"
-        name="minimo"
-        placeholder="Inicio del flujo"
-        />
-      <br />
+  <fieldset>
+    <legend>
+      Equivalencia
+    </legend>
+    <input type="text" id="resultado" placeholder="$0.00" readonly />
 
-      <label for="maximo">Periodo final:</label>
-      <br />
-      <input
-        type="number"
-        id="maximo"
-        name="maximo"
-        placeholder="Final del flujo"
-        />
-      <br />
+  </fieldset>
 
-      <label for="Interes">Interés (%):</label>
-      <br />
-      <input
-        type="number"
-        id="interes"
-        name="interes"
-        placeholder="Tasa de interes"
-        />
-      <br />
+  <br />
 
-      <label for="periodo">Periodo de interes:</label>
-      <br />
-      <input
-        type="number"
-        id="periodo"
-        name="periodo"
-        placeholder="Periodo de inicio"
-        />
+  <fieldset>
 
-      <hr/>
-      
-      <button type="button" id="generarEntradas">
-        Entradas
-      </button>
+    <legend>
+      Parámetros
+    </legend>
 
-      <button type="button" id="calcularEquivalencia">
-        Calcular
-      </button>
+    <label for="minimo">Periodo de inicio:</label>
+    <br />
+    <input type="number" id="minimo" name="minimo" placeholder="Inicio del flujo" />
+    <br />
 
-      <button type="button" id="limpiarFormulario">
-        Eliminar
-      </button>
-      
-      
-      
-    </fieldset>
-    
-    
-    <!-- -->
+    <label for="maximo">Periodo final:</label>
+    <br />
+    <input type="number" id="maximo" name="maximo" placeholder="Final del flujo" />
+    <br />
 
-    <br/>
-    <fieldset>
-      <legend><b>Flujos ($)</b></legend>
-      <div id="entradas"></div>
-    </fieldset>
+    <label for="Interes">Interés (%):</label>
+    <br />
+    <input type="number" id="interes" name="interes" placeholder="Tasa de interes" />
+    <br />
 
-    <br/>
+    <label for="periodo">Periodo de interes:</label>
+    <br />
+    <input type="number" id="periodo" name="periodo" placeholder="Periodo de inicio" />
 
-    <a href="README.md">Instrucciones</a>
-    <a href="LICENSE">Licencia</a>
-    <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia">Código</a>
-    <a href="https://galindo-lab.github.io/">Origen</a>
-  </body>
+    <hr />
+
+    <button type="button" id="generarEntradas">
+      Entradas
+    </button>
+
+    <button type="button" id="calcularEquivalencia">
+      Calcular
+    </button>
+
+    <button type="button" id="limpiarFormulario">
+      Eliminar
+    </button>
+
+
+
+  </fieldset>
+
+
+  <!-- -->
+
+  <br />
+  <fieldset>
+    <legend>Flujos ($)</legend>
+    <div id="entradas"></div>
+  </fieldset>
+
+  <br />
+
+  <a href="./index.html">
+    ᐊ regresar</a>
+</body>
+
 </html>
-

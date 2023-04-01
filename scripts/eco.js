@@ -1,5 +1,27 @@
 
 /**
+ * Convierte un flotante a un valor financieto
+ */
+function financial(x) {
+    // return Number.parseFloat(x).toFixed(2);
+    return x.toLocaleString('en-US', { 
+		style: 'currency', 
+		currency: 'USD' 
+	});
+}
+
+/**
+ * Anualidad dada un futuro
+ * @param futuro
+ * @param interes tasa de interes
+ * @param inicio periodo de inicio 
+ */
+function adf(futuro, interes, inicio) {
+	return futuro*interes/(Math.pow((1+interes),inicio)-1);
+}
+
+
+/**
  * Calcular el futuro neto de un presente a 'n' periodos
  * @param presente valor del presente
  * @param interes tasa porcentual del interes (0 al 1)
@@ -43,4 +65,26 @@ function flujonv(flujo, nperiodos, interes, periododeinteres) {
     return total;
 }
 
+/**
+ * Pago recurrente perpetuo
+ */
+function prp(pago, tasa, frecuencia, inicio) {
+  let anualidad;
+
+  // Calcula la anualidad si la frecuencia no es anual
+  if (frecuencia !== 1) {
+    anualidad = adf(pago, tasa, frecuencia);
+  } else {
+    anualidad = pago;
+  }
+
+  // Convierte en valor presente si el período de inicio no es el primero y la frecuencia es anual
+  if (inicio > 1 && frecuencia === 1) {
+    const futuro = npv(anualidad, tasa, inicio - 1);
+    return futuro / tasainteres;
+  }
+
+  // Retorna el valor presente de la anualidad
+  return anualidad / tasa;
+}
 

@@ -16,12 +16,12 @@
 
     <fieldset>
       <legend>
-        <b> Equivalencia ($) </b>
+        <b> Equivalencia </b>
       </legend>
       <input
-        type="number"
+        type="text"
         id="resultado"
-        placeholder="0.00"
+        placeholder="$0.00"
         readonly
         />
 
@@ -76,15 +76,17 @@
 
       <hr/>
       
-      <button type="button" onclick="generarEntradas()">
+      <button type="button" id="generarEntradas">
         Generar Entradas
       </button>
 
-      <button type="button" onclick="calculadoradeequivalencia()">
+      <button type="button" id="calcularEquivalencia">
         Calcular
       </button>
 
-      <button type="button" onclick="limpiarFormulario()">Eliminar</button>
+      <button type="button" id="limpiarFormulario">
+        Eliminar
+      </button>
       
       
       

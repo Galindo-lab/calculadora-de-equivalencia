@@ -12,9 +12,6 @@ const interes = document.getElementById("interes");
 const flujosEfectivo = document.getElementById("entradas")
 
 
-
-
-
 /**
  * Copiar un valor de una entrada a otra
  */
@@ -24,13 +21,23 @@ function copyValue(a,b) {
 }
 
 
+/**
+ * Obtener los valores del arreglo, si un valor esta vacio
+ * el valor ingresado es '0'
+ * @return array
+ */
+function obtenerValores() {
+    const entradas = Array.from(document.querySelectorAll("#entradas input"));
+    return entradas.map(entrada => parseFloat(eval(entrada.value)) || 0);
+}
+
 
 
 
 /**
  * Generar los campos para ingresar el flujo de efectivo
  */
-function generarEntradas() {
+document.getElementById("generarEntradas").onclick = () => {
     const min = parseInt(minimo.value);
     const max = parseInt(maximo.value);
     const entradas = flujosEfectivo;
@@ -54,24 +61,10 @@ function generarEntradas() {
 }
 
 
-
-
-
-
-/**
- * Obtener los valores del arreglo
- * @return array
- */
-function obtenerValores() {
-    const entradas = Array.from(document.querySelectorAll("#entradas input"));
-    return entradas.map(entrada => parseFloat(eval(entrada.value)) || 0);
-}
-
-
 /**
  * vacia el formulario y borras las entradas
  */
-function limpiarFormulario() {
+document.getElementById("limpiarFormulario").onclick = () => {
     // Limpiar las entradas existentes
     flujosEfectivo.innerHTML = "";
 
@@ -83,25 +76,10 @@ function limpiarFormulario() {
     salida.value = "";
 }
 
-
-
-
-
-/**
- * Convierte un flotante a un valor financieto
- */
-function financial(x) {
-  return Number.parseFloat(x).toFixed(2);
-}
-
-
-
-
-
 /**
  * Calcula la quivalencia en el periodo
  */
-function calculadoradeequivalencia() {
+document.getElementById("calcularEquivalencia").onclick = () => {
     const periodoinicio = parseInt(minimo.value);
     const periodofinal = parseInt(maximo.value);
     const periododeinteres = periodo.value == "" ? periodoinicio : parseInt(periodo.value);
@@ -112,7 +90,7 @@ function calculadoradeequivalencia() {
     const porcentual = interesPorcentual / 100;
     const pinteres = Math.abs(periodoinicio - periododeinteres);
     
-    document.getElementById("resultado").value = financial(flujonv(flujo, nflujos, porcentual, pinteres));
+    salida.value = financial(flujonv(flujo, nflujos, porcentual, pinteres));
 }
 
 

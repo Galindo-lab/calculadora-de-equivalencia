@@ -1,23 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark light">
     
     <title>Document</title>
+    
+    <script defer src="scripts/eco.js"></script>
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
 
     <fieldset>
       <legend>
-        <b> Equivalencia ($) </b>
+        <b> Resultado </b>
       </legend>
       <input
-        type="number"
+        type="text"
         id="resultado"
-        placeholder="0.00"
+        placeholder="$0.00"
         readonly
         />
 
@@ -66,11 +68,60 @@
         type="number"
         id="inicio"
         name="inicio"
-        placeholder="presente"
+        placeholder="Primer periodo"
         />
       <br />
+
+      <hr/>
+
+      <button id="calcular">
+        Calcular 
+      </button>
+
+      <button id="limpiar">
+        Limpiar
+      </button>
       
     </fieldset>
+
+    <br/>
+
+    <a href="README.md"><b>Instrucciones</b></a>
+    <a href="LICENSE"><b>Licencia</b></a>
+    <a href="https://github.com/Galindo-lab/calculadora-de-equivalencia"><b>Codigo</b></a>
+    <a href="https://galindo-lab.github.io/"><b>Origen</b></a>
     
   </body>
+
+  <script>
+    const resultado = document.getElementById("resultado") 
+    const pago = document.getElementById("pago")
+    const tasa = document.getElementById("interes")
+    const frecuencia = document.getElementById("frecuencia")
+    const inicio = document.getElementById("inicio")
+    
+    document.getElementById("limpiar").onclick = () => {
+        resultado.value = ""
+        pago.value = ""
+        tasa.value = ""
+        frecuencia.value = ""
+        inicio.value = ""
+    }
+
+    document.getElementById("calcular").onclick = () => {
+        let pagofloat = parseFloat(pago.value)
+        let tasafloat = parseFloat(tasa.value) / 100
+        let frecuenciaint = parseInt(frecuencia.value)
+        let periodoInicio = parseInt(frecuencia.value)
+
+        console.log(pagofloat)
+        console.log(tasafloat)
+        console.log(frecuenciaint)
+        console.log(periodoInicio)
+        
+        resultado.value = financial(prp(pagofloat, tasafloat, frecuenciaint, periodoInicio))
+    }
+
+  </script>
+  
 </html>

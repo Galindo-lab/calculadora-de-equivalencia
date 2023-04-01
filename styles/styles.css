@@ -6,7 +6,6 @@
 }
 
 body {
-    
     width: min(100% - 2rem, 520px);
     margin-inline: auto;
     margin-block: 7rem;
@@ -21,7 +20,7 @@ hr {
 
 input {
     margin: 0.25em;
-    border: 1px solid; 
+    border: 1px solid;
     background-color: inherit;
 }
 
@@ -34,11 +33,11 @@ input[readonly] {
 }
 
 fieldset {
-    border: 1px solid; 
+    border: 1px solid;
 }
 
 legend {
-    font-weight: inherit;
+    font-weight: bold;
 }
 
 a {
@@ -57,15 +56,6 @@ a[href^="http"]::before {
 
 a[href^="http"]::after {
     content: "]";
-}
-
-
-h2 {
-    font-weight: inherit;
-}
-
-h1 {
-    font-weight: inherit;
 }
 
 ul {

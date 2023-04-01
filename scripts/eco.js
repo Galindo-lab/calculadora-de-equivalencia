@@ -1,13 +1,13 @@
 
 /**
- * Convierte un flotante a un valor financieto
+ * Convierte un flotante a un valor financiero
  */
 function financial(x) {
-    // return Number.parseFloat(x).toFixed(2);
-    return x.toLocaleString('en-US', { 
-		style: 'currency', 
-		currency: 'USD' 
-	});
+  // return Number.parseFloat(x).toFixed(2);
+  return x.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  });
 }
 
 /**
@@ -17,7 +17,7 @@ function financial(x) {
  * @param inicio periodo de inicio 
  */
 function adf(futuro, interes, inicio) {
-	return futuro*interes/(Math.pow((1+interes),inicio)-1);
+  return futuro * interes / (Math.pow((1 + interes), inicio) - 1);
 }
 
 
@@ -28,8 +28,8 @@ function adf(futuro, interes, inicio) {
  * @param periodos numero de periodos 
  */
 function nfv(presente, interes, periodos) {
-	let subtotal = presente*Math.pow((1+interes),periodos);
-	return subtotal;
+  let subtotal = presente * Math.pow((1 + interes), periodos);
+  return subtotal;
 }
 
 
@@ -40,8 +40,8 @@ function nfv(presente, interes, periodos) {
  * @param periodos numero de periodos 
  */
 function npv(futuro, interes, periodos) {
-	let subtotal = futuro/Math.pow((1+interes),periodos);
-	return subtotal;
+  let subtotal = futuro / Math.pow((1 + interes), periodos);
+  return subtotal;
 }
 
 /**
@@ -49,20 +49,20 @@ function npv(futuro, interes, periodos) {
  * @param flujo arreglo de los flujos de efectivo
  * @param nperiodos numero de periodos en el flujo
  * @param interes tasa porcentual del interes (0 al 1)
- * @param periododeinteres periodo respecto al cual queremos calcular la equivalencia
+ * @param periododeinteres periodo al cual se va a calcular la equivalencia
  */
 function flujonv(flujo, nperiodos, interes, periododeinteres) {
-    let total = flujo[periododeinteres];
+  let total = flujo[periododeinteres];
 
-    for (let i = 0; i <= nperiodos; i++) {
-        if (i < periododeinteres) {
-            total += nfv(flujo[i], interes, periododeinteres - i);
-        } else if (i > periododeinteres) {
-            total += npv(flujo[i], interes, i - periododeinteres);
-        }
+  for (let i = 0; i <= nperiodos; i++) {
+    if (i < periododeinteres) {
+      total += nfv(flujo[i], interes, periododeinteres - i);
+    } else if (i > periododeinteres) {
+      total += npv(flujo[i], interes, i - periododeinteres);
     }
+  }
 
-    return total;
+  return total;
 }
 
 /**
@@ -78,7 +78,7 @@ function prp(pago, tasa, frecuencia, inicio) {
     anualidad = pago;
   }
 
-  // Convierte en valor presente si el período de inicio no es el primero y la frecuencia es anual
+  // Convierte en valor presente si el perï¿½odo de inicio no es el primero y la frecuencia es anual
   if (inicio > 1 && frecuencia === 1) {
     const futuro = npv(anualidad, tasa, inicio - 1);
     return futuro / tasainteres;

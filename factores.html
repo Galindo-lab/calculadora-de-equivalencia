@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factores de interés compuesto</title>
+
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+    <fieldset>
+        <legend>
+            Factores de interés compuesto
+        </legend>
+
+        <input type="text" id="resultado" placeholder="" readonly />
+        <output name="x"></output>
+    </fieldset>
+
+    <br>
+
+    <fieldset> 
+        <legend>Parámetros</legend>
+
+
+        <label for="interes">Interes (%):</label>
+        <br>
+        <input type="number" id="interes">
+        <br />
+        
+        <label for="Periodo">Periodos (n):</label>
+        <br>
+        <input type="number" id="interes">
+        <br />
+
+
+        <label for="factores">Factor:</label>
+        <br />
+        <select id="factores">
+            <option value="F/P">F/P</option>
+            <option value="P/F">P/F</option>
+
+            <option value="A/F">A/F</option>
+            <option value="F/A">F/A</option>
+            <option value="A/P">A/P</option>
+            <option value="P/A">P/A</option>
+
+            <option value="P/G">P/G</option>
+            <option value="A/G">A/G</option>
+            <option value="F/G">F/G</option>
+        </select>
+
+        <hr>
+
+        <button>
+            Calcular
+        </button>
+    </fieldset>
+</body>
+
+</html>

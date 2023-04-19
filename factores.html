@@ -16,13 +16,13 @@
             Factores de interés compuesto
         </legend>
 
-        <input type="text" id="resultado" placeholder="" readonly />
+        <input type="text" id="resultado" placeholder="" name="factor" readonly />
         <output name="x"></output>
     </fieldset>
 
     <br>
 
-    <fieldset> 
+    <fieldset>
         <legend>Parámetros</legend>
 
 
@@ -30,10 +30,10 @@
         <br>
         <input type="number" id="interes">
         <br />
-        
-        <label for="Periodo">Periodos (n):</label>
+
+        <label for="periodo">Periodos (n):</label>
         <br>
-        <input type="number" id="interes">
+        <input type="number" id="periodo">
         <br />
 
 
@@ -55,10 +55,32 @@
 
         <hr>
 
-        <button>
+        <button onclick="calculate()">
             Calcular
         </button>
     </fieldset>
 </body>
+
+<script>
+    var formulario = {
+        "F/P": (i, n) => (1 + i) ** n,
+        "P/F": (i, n) => 1 / (1 + i) ** n,
+        "A/F": (i, n) => i / ((1 + i) ** n - 1),
+        "F/A": (i, n) => ((1 + i) ** n - 1) / i,
+        "A/P": (i, n) => (i * (1 + i) ** n) / ((1 + i) ** n - 1),
+        "P/A": (i, n) => ((1 + i) ** n - 1) / (i * (1 + i) ** n),
+        "P/G": (i, n) => ((1 + i) ** n - i * n - 1) / (i ** 2 * (1 + i) ** n),
+        "A/G": (i, n) => (1 / i) - n / ((1 + i) ** n - 1),
+        "F/G": (i, n) => (1 / i) * ((1 + i) ** n - 1) / (i) - n
+    }
+
+    function calculate() {
+        fac = document.getElementById("factores").value
+        i = parseFloat(document.getElementById("interes").value) / 100
+        n = parseInt(document.getElementById("periodo").value)
+
+        document.getElementById("resultado").value = formulario[fac](i, n)
+    }
+</script>
 
 </html>

@@ -19,17 +19,9 @@
     <style>
         body {
             -webkit-user-select: none;
-            /* Safari */
             -ms-user-select: none;
-            /* IE 10 and IE 11 */
             user-select: none;
-            /* Standard syntax */
         }
-
-        .btn:focus,.btn:active {
-   outline: none !important;
-   box-shadow: none;
-}
     </style>
 </head>
 
@@ -49,7 +41,7 @@
             </div>
 
             <div class="text-right mt-2 h2">
-                {{result}}
+                {{ formatFinancial(result) }}
             </div>
         </div>
 
@@ -58,23 +50,13 @@
             <!--https://stackoverflow.com/a/63415743/22015904-->
             <div class="container">
 
-                <div class="row my-4">
+                <div v-for="(flow, index) in cashFlow" class="row my-4">
                     <div class="col text-secondary">
-                        Periodo: 0
+                        Periodo: {{index}}
                     </div>
 
                     <div class="col text-right h5">
-                        $1000.00
-                    </div>
-                </div>
-
-                <div class="row my-4">
-                    <div class="col text-secondary">
-                        Periodo: 0
-                    </div>
-
-                    <div class="col text-right h5">
-                        $1000.00
+                        {{ formatFinancial(flow) }}
                     </div>
                 </div>
             </div>
@@ -84,29 +66,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-7 p-1">
-                    <button @click="setValue" class="w-100 btn btn-light"> Nuevo flujo </button>
+                    <button @click="addFlow" class="w-100 btn btn-light"> Nuevo flujo </button>
                 </div>
 
                 <div class="col-5 p-1">
-                    <button class="w-100 btn btn-dark"> AC </button>
+                    <button @click="clearFlows" class="w-100 btn btn-dark"> AC </button>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 <script>
     Vue.createApp({
         data() {
             return {
-                result: financial(0)
+                result: 0,
+                cashFlow: []
             };
         },
         methods: {
-            setValue(event) {
+            clearFlows() {
+                this.result = 0
+                this.cashFlow = []
+            },
 
-                this.result = financial(10000000000.345)
+            addFlow(event) {
+                this.cashFlow.push(0)
+            },
+
+            formatFinancial(flow) {
+                return financial(flow)
             }
         }
     }).mount('#content')

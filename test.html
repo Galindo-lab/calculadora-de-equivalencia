@@ -38,7 +38,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title">Valor del flujo</h5>
+                        <h5 class="modal-title">Flujo del periodo {{selectedFlowIndex}}</h5>
                     </div>
 
                     <div class="modal-body">
@@ -64,15 +64,15 @@
         <div class="container shadow bg-primary text-white p-3 pt-5 rounded-bottom">
             <div class="row">
                 <div class="col">
-                    <span class="label-primary">VPN</span>
+                    <span class="label-primary small">VPN</span>
                 </div>
 
                 <div class="col text-end">
-                    <span class="label-primary">10.5%</span>
+                    <span class="label-primary small">10.5%</span>
                 </div>
             </div>
 
-            <div class="text-end mt-2 h2">
+            <div class="text-end mt-2 h1">
                 {{ formatFinancial(result) }}
             </div>
         </div>
@@ -86,7 +86,7 @@
                     {{ index }}
                 </div>
 
-                <div class="col text-end h5" @click="openSetFlowModal(index, $event)" data-bs-toggle="modal"
+                <div class="col text-end h6" @click="openSetFlowModal(index, $event)" data-bs-toggle="modal"
                     data-bs-target="#setFlowModal">
                     <!--https://stackoverflow.com/a/43529590/22015904-->
                     {{ formatFinancial(flow) }}

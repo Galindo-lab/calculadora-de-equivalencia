@@ -54,7 +54,7 @@ function npv(futuro, interes, periodos) {
 function flujonv(flujo, nperiodos, interes, periododeinteres) {
   let total = flujo[periododeinteres];
 
-  for (let i = 0; i <= nperiodos; i++) {
+  for (let i = 0; i < nperiodos; i++) {
     if (i < periododeinteres) {
       total += nfv(flujo[i], interes, periododeinteres - i);
     } else if (i > periododeinteres) {
